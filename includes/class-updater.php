@@ -102,7 +102,8 @@ class Tracsoft_LB_Updater {
 		return self::release_from_tag(
 			$data['tag_name'],
 			! empty( $data['body'] ) ? $data['body'] : '',
-			! empty( $data['html_url'] ) ? $data['html_url'] : self::github_url()
+			! empty( $data['html_url'] ) ? $data['html_url'] : self::github_url(),
+			! empty( $data['assets'] ) && is_array( $data['assets'] ) ? self::package_from_assets( $data['assets'] ) : ''
 		);
 	}
 
@@ -133,10 +134,38 @@ class Tracsoft_LB_Updater {
 		return is_array( $data ) ? $data : false;
 	}
 
-	private static function release_from_tag( $tag, $notes, $url ) {
+	private static function package_from_assets( $assets ) {
+		$fallback = '';
+
+		foreach ( $assets as $asset ) {
+			if ( empty( $asset['browser_download_url'] ) || empty( $asset['name'] ) ) {
+				continue;
+			}
+
+			if ( '.zip' !== substr( strtolower( $asset['name'] ), -4 ) ) {
+				continue;
+			}
+
+			if ( self::plugin_slug() . '.zip' === strtolower( $asset['name'] ) ) {
+				return $asset['browser_download_url'];
+			}
+
+			if ( ! $fallback ) {
+				$fallback = $asset['browser_download_url'];
+			}
+		}
+
+		return $fallback;
+	}
+
+	private static function release_from_tag( $tag, $notes, $url, $package = '' ) {
 		$version = ltrim( $tag, 'vV' );
 		if ( ! preg_match( '/^\d+(?:\.\d+){1,3}(?:[-+][0-9A-Za-z.-]+)?$/', $version ) ) {
 			return false;
+		}
+
+		if ( ! $package ) {
+			$package = 'https://github.com/' . TRACSOFT_LB_GITHUB_OWNER . '/' . TRACSOFT_LB_GITHUB_REPO . '/archive/refs/tags/' . rawurlencode( $tag ) . '.zip';
 		}
 
 		return array(
@@ -144,7 +173,7 @@ class Tracsoft_LB_Updater {
 			'tag'     => $tag,
 			'notes'   => $notes,
 			'url'     => $url,
-			'package' => 'https://github.com/' . TRACSOFT_LB_GITHUB_OWNER . '/' . TRACSOFT_LB_GITHUB_REPO . '/archive/refs/tags/' . rawurlencode( $tag ) . '.zip',
+			'package' => $package,
 		);
 	}
 

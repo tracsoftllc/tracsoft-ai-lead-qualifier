@@ -16,11 +16,13 @@ AI-assisted lead qualification chatbot for Tracsoft.com.
    - Plugin header `Version`
    - `TRACSOFT_LB_VERSION`
 3. Commit and push to `main`.
-4. Create and push a matching tag, for example:
+4. Create a ZIP with `tracsoft-ai-lead-qualifier/` as the top-level folder.
+5. Create a matching GitHub release and upload the ZIP as `tracsoft-ai-lead-qualifier.zip`, for example:
 
 ```bash
-git tag v1.0.3
+git tag v1.0.4
 git push origin main --tags
+zip -r /tmp/tracsoft-ai-lead-qualifier.zip tracsoft-ai-lead-qualifier
 ```
 
-WordPress sites with the plugin installed will check the public GitHub repo for the latest release or tag and show an available plugin update when the tag version is newer than the installed version.
+WordPress sites with the plugin installed will check the public GitHub repo for the latest release asset or tag and show an available plugin update when the tag version is newer than the installed version.
