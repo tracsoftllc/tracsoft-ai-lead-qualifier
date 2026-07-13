@@ -17,6 +17,7 @@ class Tracsoft_LB_Plugin {
 		Tracsoft_LB_Admin::init();
 		Tracsoft_LB_Chatbot::init();
 		Tracsoft_LB_REST_API::init();
+		Tracsoft_LB_Updater::init();
 	}
 
 	public static function activate() {
