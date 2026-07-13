@@ -1,0 +1,26 @@
+.tracsoft-lb-admin .nav-tab-wrapper {
+  margin-bottom: 18px;
+}
+.tracsoft-lb-admin textarea.large-text {
+  max-width: 920px;
+}
+.tracsoft-lb-knowledge {
+  max-width: 980px;
+}
+.tracsoft-lb-knowledge-item {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 8px;
+  margin: 0 0 14px;
+  padding: 14px;
+}
+.tracsoft-lb-knowledge-item label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px 10px 0;
+}
+.tracsoft-lb-admin pre {
+  white-space: pre-wrap;
+  max-width: 680px;
+}

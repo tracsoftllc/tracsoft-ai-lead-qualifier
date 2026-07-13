@@ -1,0 +1,258 @@
+.tracsoft-lead-bot-root {
+  --tlb-primary: #0f766e;
+  --tlb-secondary: #f97316;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #17212b;
+}
+.tracsoft-lead-bot-root.tlb-left {
+  right: auto;
+  left: 20px;
+  align-items: flex-start;
+}
+.tracsoft-lead-bot-root [hidden] {
+  display: none !important;
+}
+.tlb-teaser {
+  width: min(420px, calc(100vw - 32px));
+  margin-bottom: 14px;
+  display: grid;
+  gap: 10px;
+  position: relative;
+}
+.tlb-teaser-message {
+  width: 100%;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  background: #fff;
+  color: #17212b;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, .14);
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.35;
+  padding: 16px 18px;
+  text-align: left;
+}
+.tlb-teaser-message:hover,
+.tlb-teaser-message:focus {
+  border-color: var(--tlb-primary);
+  outline: 3px solid color-mix(in srgb, var(--tlb-primary) 20%, transparent);
+  outline-offset: 2px;
+}
+.tlb-teaser-close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 2;
+  border: 1px solid #d6dde6;
+  border-radius: 999px;
+  background: #fff;
+  color: #344054;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(.92);
+  transition: opacity .14s ease, transform .14s ease;
+}
+.tlb-teaser:hover .tlb-teaser-close,
+.tlb-teaser:focus-within .tlb-teaser-close {
+  opacity: 1;
+  transform: scale(1);
+}
+.tracsoft-lead-bot-root.tlb-left .tlb-teaser-close {
+  right: auto;
+  left: -10px;
+}
+.tlb-bubble {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 24px;
+  background: var(--tlb-primary);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .26);
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.tlb-bubble:hover,
+.tlb-bubble:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, .3);
+  outline: 3px solid color-mix(in srgb, var(--tlb-primary) 26%, transparent);
+  outline-offset: 3px;
+}
+.tlb-bubble-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+.tlb-bubble-mark {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+.tlb-panel {
+  width: min(380px, calc(100vw - 32px));
+  height: min(620px, calc(100vh - 104px));
+  margin-bottom: 0;
+  background: #fff;
+  border: 1px solid #d7dde3;
+  border-radius: 8px;
+  box-shadow: 0 22px 60px rgba(15, 23, 42, .24);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.tlb-header {
+  min-height: 54px;
+  background: var(--tlb-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+.tlb-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.tlb-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  background: #f7f9fb;
+}
+.tlb-message {
+  max-width: 88%;
+  margin: 0 0 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  line-height: 1.4;
+  font-size: 14px;
+}
+.tlb-message p {
+  margin: 0 0 8px;
+}
+.tlb-message p:last-child {
+  margin-bottom: 0;
+}
+.tlb-bot {
+  background: #fff;
+  border: 1px solid #e4e8ed;
+}
+.tlb-user {
+  margin-left: auto;
+  background: var(--tlb-primary);
+  color: #fff;
+}
+.tlb-user a {
+  color: #fff;
+}
+.tlb-typing {
+  color: #586574;
+}
+.tlb-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 12px 0;
+  background: #fff;
+}
+.tlb-chip {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #17212b;
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: left;
+}
+.tlb-chip:hover,
+.tlb-chip:focus {
+  border-color: var(--tlb-primary);
+}
+.tlb-input,
+.tlb-contact {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: #fff;
+}
+.tlb-input {
+  grid-template-columns: 1fr auto;
+}
+.tlb-input input,
+.tlb-input textarea,
+.tlb-contact input {
+  min-height: 42px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.tlb-input textarea {
+  max-height: 108px;
+  overflow-y: auto;
+  resize: none;
+}
+.tlb-input button,
+.tlb-contact button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--tlb-primary);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tlb-input button {
+  min-width: 72px;
+}
+.tlb-privacy {
+  margin: 0;
+  padding: 0 12px 12px;
+  background: #fff;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.35;
+}
+@media (max-width: 480px) {
+  .tracsoft-lead-bot-root,
+  .tracsoft-lead-bot-root.tlb-left {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+  .tlb-panel {
+    width: 100%;
+    height: calc(100vh - 96px);
+  }
+  .tlb-teaser {
+    width: calc(100vw - 24px);
+  }
+  .tlb-bubble {
+    width: 60px;
+    height: 60px;
+    border-radius: 22px;
+  }
+}
