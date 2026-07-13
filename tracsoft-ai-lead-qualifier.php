@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Tracsoft AI Lead Qualifier
  * Description: AI-assisted lead qualification chatbot for Tracsoft.com.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Tracsoft
  * Text Domain: tracsoft-ai-lead-qualifier
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'TRACSOFT_LB_VERSION', '1.0.4' );
+define( 'TRACSOFT_LB_VERSION', '1.0.5' );
 define( 'TRACSOFT_LB_FILE', __FILE__ );
 define( 'TRACSOFT_LB_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TRACSOFT_LB_URL', plugin_dir_url( __FILE__ ) );
